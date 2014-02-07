@@ -1,6 +1,11 @@
-<h1>Listing Posts</h1>
-<%= link_to 'New Post', new_post_path()  %>
-<table>
+
+<div class="row">
+    <div class="well">
+        <div class="span10" align="center"><h4>List of posts<h4></div>
+        <div class="span1">  <%= link_to 'New Post', new_post_path()  %></div>
+    </div>
+</div>
+<table class="table table-bordered">
   <tr>
     <th>Title</th>
     <th>Text</th>
