@@ -1,26 +1,35 @@
 <%= form_for @post do |f| %>
-  <% if @post.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@post.errors.count, "error") %> prohibited
-      this post from being saved:</h2>
-    <ul>
-    <% @post.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+    <% if @post.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@post.errors.count, "error") %> prohibited
+            this post from being saved:
+        </h2>
+        <ul>
+          <% @post.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
     <% end %>
-    </ul>
+    
+  <div class="row">
+      <p>
+        <div class="span1 offset4">
+            <%= f.label :title %> 
+        </div>
+            <%= f.text_field :title %>
+      </p>
   </div>
-  <% end %>
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+  <div class="row">
+    <div class="span1 offset4"> 
+      <p><%= f.label :text %></p>
+    </div>
+      <p>
+        <%= f.text_area :text, cols:30, rows:10%>
+      </p>
+ </div>
+ <div class="span1 offset5"><p>
+    <%= f.submit class:"btn btn-danger"%>
   </p>
- 
-  <p>
-    <%= f.label :text %><br>
-    <%= f.text_area :text %>
-  </p>
- 
-  <p>
-    <%= f.submit %>
-  </p>
+  </div> 
 <% end %>
