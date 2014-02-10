@@ -1,35 +1,30 @@
-<%= form_for @post do |f| %>
+<%= form_for @post, html: {class:"form-horizontal well"} do |f|%>
+  
     <% if @post.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@post.errors.count, "error") %> prohibited
-            this post from being saved:
-        </h2>
-        <ul>
-          <% @post.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
+    <div id="error_explanation">
+    <h2><%= pluralize(@post.errors.count, "error") %> prohibited
+    this post from being saved:
+    </h2>
+    <ul>
+    <% @post.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+    </ul>
+    </div>
     <% end %>
     
-  <div class="row">
-      <p>
-        <div class="span1 offset4">
-            <%= f.label :title %> 
+     <div class="control-group">
+      <%= f.label :title, class:"control-label", for:"input01"%>
+        <div class="controls">
+          <%= f.text_field :title, class:"input-xxlarge", id:"input01" %>
         </div>
-            <%= f.text_field :title %>
-      </p>
-  </div>
-  <div class="row">
-    <div class="span1 offset4"> 
-      <p><%= f.label :text %></p>
+      <%= f.label :text, class:"control-label", for:"input02"%>
+        <div class="controls">
+          <%= f.text_area :text, class:"input-xxlarge", id:"input02", :rows => 10 %>
+        </div>
+        <div class="controls">
+          <%= link_to 'Back', posts_path, class:"btn btn-inverse"%>
+          <%= f.submit class:"btn btn-danger"%>
+        </div>
     </div>
-      <p>
-        <%= f.text_area :text, cols:30, rows:10%>
-      </p>
- </div>
- <div class="span1 offset5"><p>
-    <%= f.submit class:"btn btn-danger"%>
-  </p>
-  </div> 
 <% end %>
