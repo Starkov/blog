@@ -1,15 +1,13 @@
-<p>
-  <strong>Commenter:</strong>
-  <%= comment.commenter %>
-</p>
- 
-<p>
-  <strong>Comment:</strong>
-  <%= comment.body %>
-</p>
- 
-<p>
-  <%= link_to 'Destroy Comment', [comment.post, comment],
-               method: :delete,
-               data: { confirm: 'Are you sure?' } %>
-</p>
+<div class="row">
+	<div class="span1"><p><strong>Commenter:</strong></p></div>
+	<div class="span5"><p><em><%= comment.commenter %></em></p></div>
+	<div class="span1"><p><strong>Comment:</strong></p></div>
+	<div class="span5" style="word-wrap: break-word;"><p><small><%= comment.body%></small></p></div>
+	<div class="span1 offset5">
+	<p>
+	  <%= link_to 'Delete', [comment.post, comment],
+	               method: :delete,
+	               data: { confirm: 'Are you sure?' } %>
+	</p>
+	</div>
+</div>
