@@ -1,8 +1,5 @@
 Blog::Application.routes.draw do
   
-  #get "persons/profile"
-  get 'persons/profile', as: 'user_root'
-
   devise_for :users
   #get "welcom/index"
   # The priority is based upon order of creation: first created -> highest priority.
@@ -10,7 +7,7 @@ Blog::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
 
-  root to: "welcom#index" 
+  root to: "posts#index" 
  
   resources :posts do
       resources :comments
