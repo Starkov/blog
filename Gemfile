@@ -37,4 +37,4 @@ gem 'rails_12factor', '0.0.2'
 
 gem "twitter-bootstrap-rails"
 
-gem 'device', '~> 3.2.1'
+gem 'devise'
