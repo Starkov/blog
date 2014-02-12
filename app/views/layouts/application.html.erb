@@ -16,7 +16,11 @@
         </ul> 
           <ul class="nav pull-right"> 
             <% if user_signed_in? %>
-              <li></br>Здравствуйте, <%= current_user.name %> <%= current_user.surname %></li>
+              <li>Здравствуйте, 
+                <p class="text-success"><em>
+                  <%= current_user.name %> <%= current_user.surname %></em>
+                </p>
+              </li>
               <li><%= link_to 'Выйти', destroy_user_session_path, :method => :delete %></li> 
               <li><%= link_to 'Кабинет', edit_user_registration_path, :method => :get %></li>
              <% else %>
