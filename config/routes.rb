@@ -1,6 +1,5 @@
 Blog::Application.routes.draw do
-  get "persons/profile"
-  get 'persons/profile', as: 'user_root'
+  
   devise_for :users
   #get "welcom/index"
   # The priority is based upon order of creation: first created -> highest priority.
