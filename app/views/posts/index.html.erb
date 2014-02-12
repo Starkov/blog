@@ -1,30 +1,15 @@
 
 <div class="row">
-    <div class="well">
-        <div class="span9 offset4"><h4>List of posts<h4></div>
-        <div class="span3 offset9">
-            <% if user_signed_in? %>
-                <span>Здравствуйте, <%= current_user.email %></span></br>
-                <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %>  |  
-                <%= link_to 'Кабинет', 'persons/profile' %>
-            <% else %>
-                <%= link_to 'Войти', new_user_session_path %> или <%= link_to 'Зарегистрироваться', new_user_registration_path %>
-            <% end %>
-        </div>
-    </div>
+ 
+        <center><h4>List of posts<h4></center> 
 </div>
 </br>
-<div class="row">
-    <div class="span3 offset9"> 
-     <%= link_to 'New Post', new_post_path(), class:"btn btn-danger btn-block"  %>
-    </div>
-</div>
 
 <% @posts.each do |post| %>
     <div class="row">
-        <div class="span9">
+        <div class="span8 offset2">
             <div class="row">
-                <div class="row span7">
+                <div class="row span6">
                         <p>Title: <%= post.title %></p>
                 </div>  
                 <div class="span2">

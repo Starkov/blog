@@ -8,18 +8,29 @@
 </head>
 <body>
 	<div class="container">
-		<p class="notice"><%= notice %></p>
-       	<p class="alert"><%= alert %></p>
+		<div class="row">
+      <div class="span12">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+      </div>
+    </div>   
+    <div class="row">
+      <div class="span6">
+        <% if user_signed_in? %>
+    		  <span>Здравствуйте, <%= current_user.name %></span>
+          <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %> | 
+    		  <%= link_to 'Кабинет', edit_user_registration_path, :method => :get %>
+	       <% else %>
+  		      <%= link_to 'Войти', new_user_session_path %> или <%= link_to 'Зарегистрироваться', new_user_registration_path %>
+  	   <% end %> 
+      </div>
+      <div class="span1 offset5">
+          <%= link_to 'New Post', new_post_path(), class:"btn btn-danger btn-block"  %>
+      </div>
+    </div>
 
-       <% if user_signed_in? %>
-      		  <span>Здравствуйте, <%= current_user.email %></span>
-            <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %> | 
-      		  <%= link_to 'Кабинет', edit_user_registration_path, :method => :get %>
-		       <% else %>
-    		    <%= link_to 'Войти', new_user_session_path %> или <%= link_to 'Зарегистрироваться', new_user_registration_path %>
-	     	<% end %> 
-    
 		<%= yield %>
+    
 	</div>
 </body>
 </html>
