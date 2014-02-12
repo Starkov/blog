@@ -38,4 +38,5 @@ gem 'rails_12factor', '0.0.2'
 gem "twitter-bootstrap-rails"
 
 gem 'devise'
+gem 'will_paginate', '~> 3.0'
 
