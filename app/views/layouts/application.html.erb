@@ -8,28 +8,28 @@
 </head>
 <body>
 	<div class="container">
-    <div class="navbar">
-      <div class="navbar-inner">
-        <%= link_to 'Starkov', root_path, class:"brand" %>
-        <ul class="nav">
-          <li> <%= link_to 'Добавить пост', new_post_path()%></li>
-        </ul> 
-          <ul class="nav pull-right"> 
-            <% if user_signed_in? %>
-              <li>Здравствуйте, 
-                <p class="text-success"><em>
-                  <%= current_user.name %> <%= current_user.surname %></em>
-                </p>
-              </li>
-              <li><%= link_to 'Выйти', destroy_user_session_path, :method => :delete %></li> 
-              <li><%= link_to 'Кабинет', edit_user_registration_path, :method => :get %></li>
-             <% else %>
-              <li><%= link_to 'Войти', new_user_session_path %></li>
-              <li><%= link_to 'Зарегистрироваться', new_user_registration_path %></li>
-            <% end %> 
-          </ul>
-      </div>
-    </div>
+        <div class="navbar navbar-inverse">
+            <div class="navbar-inner">
+                <%= link_to 'Starkov', root_path, class:"brand" %>
+                <ul class="nav">
+                  <li class="divider-vertical"> <%= link_to 'Добавить пост', new_post_path()%></li>
+                </ul> 
+                <ul class="nav pull-right"> 
+                    <% if user_signed_in? %>
+                        <li><p class="navbar-text">
+                            Здравствуйте, <em><%= current_user.name %> <%= current_user.surname %></em></p>
+                        </li>
+                        <li class="divider-vertical">
+                            <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %></li> 
+                        <li class="divider-vertical">
+                            <%= link_to 'Кабинет', edit_user_registration_path, :method => :get %></li>
+                        <% else %>
+                            <li class="divider-vertical"><%= link_to 'Войти', new_user_session_path %></li>
+                            <li class="divider-vertical"><%= link_to 'Зарегистрироваться', new_user_registration_path %></li>
+                    <% end %> 
+                </ul>
+            </div>
+        </div>
 		<div class="row">
       <div class="span12">
         <p class="notice"><%= notice %></p>
