@@ -1,13 +1,14 @@
 <div class="row">
-	
-	<div class="span6"><p><em><%= comment.commenter %></em></p></div>
+	<div class="span6"><hr/><p><em><%= comment.user.name %> <%= comment.user.surname %></em></p></div>
 	<div class="span1"><p><strong>Коментарий:</strong></p></div>
 	<div class="span5" style="word-wrap: break-word;"><p><small><%= comment.body%></small></p></div>
 	<div class="span1 offset5">
-	<p>
-	  <%= link_to 'Удалить', [comment.post, comment],
-	               method: :delete,
-	               data: { confirm: 'Are you sure?' } %>
-	</p>
+		<p>
+			<% if user_signed_in? %>
+		  		<%= link_to 'Удалить', [comment.post, comment],
+		        					    method: :delete,
+		               					data: { confirm: 'Are you sure?' } %>
+		    <% end %>
+		</p>
 	</div>
 </div>
