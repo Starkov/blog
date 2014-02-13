@@ -1,27 +1,31 @@
-<h2>Sign up</h2>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<div class="row">
+  <div class="span2 offset5"><h2>Регистрация</h2></div>
+</div>
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), 
+              html: {class:"form-horizontal "}) do |f|  %>
+  <div class="control-group offset3">
+      <%= devise_error_messages! %>
 
-  	<div><%= f.label :email %><br />
-  	<%= f.email_field :email, :autofocus => true %></div>
+      	<%= f.label :email, class:"control-label", for:"input01"%>
+      	<div class="controls"><%= f.email_field :email, :autofocus => true, id:"input01"%></div>
 
-  	<div><%= f.label :password %><br />
-  	<%= f.password_field :password %></div>
+      	<%= f.label :password, class:"control-label", for:"input02" %>
+      	<div class="controls"><%= f.password_field :password, id:"input02" %></div>
 
-  	<div><%= f.label :password_confirmation %><br />
-  	<%= f.password_field :password_confirmation %></div>
- 	
- 	<div><%= f.label :name %><br/>
- 	<%= f.text_field :name %></div>
-	
-	<div><%= f.label :surname %><br/>
- 	<%= f.text_field :surname %></div>
-	
-	<div><%= f.label :birthday %><br/>
- 	<%= f.date_field :birthday %></div>
+      	<%= f.label :password_confirmation, class:"control-label", for:"input03" %>
+      	<div class="controls"><%= f.password_field :password_confirmation, id:"input03" %></div>
+     	
+     	  <%= f.label :name, class:"control-label", for:"input04" %>
+     	  <div class="controls"><%= f.text_field :name, id:"input04" %></div>
+    	
+    	  <%= f.label :surname, class:"control-label", for:"input05" %>
+     	  <div class="controls"><%= f.text_field :surname, id:"input05" %></div>
+    	
+    	  <%= f.label :birthday, class:"control-label", for:"input06" %>
+     	  <div class="controls"><%= f.date_field :birthday, id:"input06" %></div>
 
-  	<div><%= f.submit "Sign up" %></div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+      	<div class="controls"><%= f.submit "Sign up", class:"btn btn-success" %></div>
+  </div>
+    <% end %>
+    
