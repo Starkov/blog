@@ -3,8 +3,11 @@
  
         <center><h2><p class="text-info"><em>Новые посты</em></p></h2></center> 
 </div>
-</br>
-
+<div class="row">
+        <div class="pagination pagination-mini pagination-centered">
+             <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
+        </div> 
+</div>
 <% @posts.each do |post| %>
     <div class="row">
         <div class="span8 offset2">
@@ -29,5 +32,8 @@
         </div>
     </div>
 <% end %>
-
- <%= will_paginate @posts %>
+<div class="row">
+        <div class="pagination pagination-mini pagination-centered">
+             <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
+        </div> 
+</div>
