@@ -1,11 +1,9 @@
 <div class="row">
 	<div class="span8 offset2">
-		<p><h3><strong>Title:</strong>
-		  <em><%= @post.title %></em></h3></p>
+		<p><h3><em><%= @post.title %></em></h3></p>
 		<div class="row">
 			<div class="span8 well" style="word-wrap: break-word;">
-				<p><strong>Text:</strong>
-				  <%= @post.text %></p>
+				<p><%= @post.text %></p>
 			</div>
 		</div> 
 	</div>
@@ -19,7 +17,7 @@
 	<div class="span6 offset3">
 		</br><hr/>
 		<%= render @post.comments %>
-		<h2>Add a comment:</h2>
+		<h3>Добавить коментарий:</h3>
 		<%= render "comments/form" %>
 	</div>
 </div>

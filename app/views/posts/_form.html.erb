@@ -14,17 +14,16 @@
     <% end %>
     
      <div class="control-group">
-      <%= f.label :title, class:"control-label", for:"input01"%>
+      <%= f.label :"Тема", class:"control-label", for:"input01"%>
         <div class="controls">
           <%= f.text_field :title, class:"input-xxlarge", id:"input01" %>
         </div>
-      <%= f.label :text, class:"control-label", for:"input02"%>
         <div class="controls">
           <%= f.text_area :text, class:"input-xxlarge", id:"input02", :rows => 10 %>
         </div>
         <div class="controls">
-          <%= link_to 'Back', posts_path, class:"btn btn-inverse"%>
-          <%= f.submit class:"btn btn-danger"%>
+          <%= link_to 'Назад', posts_path, class:"btn btn-inverse"%>
+          <%= f.submit "Сохранить", class:"btn btn-danger"%>
         </div>
     </div>
 <% end %>

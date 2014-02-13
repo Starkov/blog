@@ -10,14 +10,13 @@
         <div class="span8 offset2">
             <div class="row">
                 <div class="row span6">
-                        <p>Title: <%= post.title %></p>
+                        <p><%= link_to  post.title, post_path(post)%></p>
                 </div>  
                 <div class="span2">
                     <div class="btn-group pull-right">
-                        <%= link_to 'Show', post_path(post), class:"btn"%>
-                        <%= link_to 'Edit', edit_post_path(post), class:"btn" %>
-                        <%= link_to 'Destroy', post_path(post),
-                        method: :delete, data: { confirm: 'Are you sure?'}, class:"btn"%>
+                        <%= link_to 'Редактировать', edit_post_path(post), class:"btn" %>
+                        <%= link_to 'Удалить', post_path(post),
+                        method: :delete, data: { confirm: 'Вы уверины?'}, class:"btn"%>
                     </div>   
                 </div>
             </div>
@@ -25,10 +24,9 @@
                 <div class="well" style="word-wrap: break-word;">
                     <%= post.text %>
                 </div>
+                <hr/>
             </div>  
-            <hr/>
-
-        </div>      
+        </div>
     </div>
 <% end %>
 

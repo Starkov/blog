@@ -1,17 +1,17 @@
 <%= form_for([@post, @post.comments.build], html: {class:"form-horizontal well"}) do |f| %>
   <div class="control-group">
-    <p><%= f.label :commenter, class:"control-label", for:"input01"%></p>
+    <!-- <p><%= f.label :commenter, class:"control-label", for:"input01"%></p>
     <div class="controls">
       <p>
          <%=f.text_field :commenter, class:"input-xlarge", id:"input01"%>
       </p>
-    </div>
-    <p><%= f.label :body, class:"control-label", for:"input02" %></p>
+    </div> -->
+    <p><%= f.label :"Коментарий", class:"control-label", for:"input02" %></p>
     <div class="controls">
       <p><%= f.text_area :body, class:"input-xlarge", id:"input02", :rows => 7%></p>
     </div>
     <div class="controls">
-      <%= f.submit %>
+      <%= f.submit "Сделать",class:"btn btn-danger" %>
     </div>
   </div>
 <% end %>
