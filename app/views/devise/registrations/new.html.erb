@@ -25,6 +25,10 @@
     	  <%= f.label :birthday, class:"control-label", for:"input06" %>
      	  <div class="controls"><%= f.date_field :birthday, id:"input06" %></div></br>
 
+        <%= f.label :"Роль", class:"control-label", for:"input07" %>
+        <div class="controls"><%= f.collection_select :role, User::ROLES, 
+        :to_s, :humanize , id:"input07"%></div></br>
+        
       	<div class="controls"><%= f.submit "Зарегистрироватся", class:"btn btn-success" %></div>
   </div>
     <% end %>

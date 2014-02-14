@@ -41,3 +41,10 @@ gem 'devise'
 gem 'will_paginate', '~> 3.0'
 gem 'will_paginate-bootstrap'
 
+gem "cancan"
+
+#For debuging
+gem 'pry-nav'
+gem 'pry-rails'
+
+gem 'protected_attributes'

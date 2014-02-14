@@ -1,5 +1,8 @@
 class PostsController < ApplicationController
     before_filter :authenticate_user!, :except => [:show, :index]
+    load_and_authorize_resource
+    skip_authorize_resource :only => :index
+    
 	def new
 		 @post = Post.new
 	end
@@ -10,9 +13,10 @@ class PostsController < ApplicationController
 		@post = Post.find(params[:id])
 	end
 	def create
-  		@post = Post.new(params[:post].permit(:title, :text))
+       params[:post][:user_id] = 1 
  
-  		if @post.save
+ 
+    if @post = Post.create(params[:post].permit(:title, :text, :user_id))
     		redirect_to @post
   		else
     		render 'new'
@@ -20,15 +24,15 @@ class PostsController < ApplicationController
 	end
  	def edit
       	@post = Post.find(params[:id])
-  	end
-  	def update
+  end
+  def update
  		@post = Post.find(params[:id])
  
-  		if @post.update(params[:post].permit(:title, :text))
-    		redirect_to @post
- 		 else
-  		  	render 'edit'
- 		 end
+  	if @post.update(params[:post].permit(:title, :text))
+   		redirect_to @post
+ 	  else
+    	render 'edit'
+ 	  end
 	end
 	def destroy
   		@post = Post.find(params[:id])
