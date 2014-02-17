@@ -29,13 +29,13 @@
         <%= f.password_field :current_password, id:"input04",
         :placeholder => "Для подтверждения!" %></div></br>
       
-      <%= f.label :name, class:"control-label", for:"input01" %>
+      <%= f.label :"Имя", class:"control-label", for:"input01" %>
       <div class="controls"><%= f.text_field :name, id:"input01" %></div><br/>
       
-      <%= f.label :surname, class:"control-label", for:"input02" %>
+      <%= f.label :"Фамилия", class:"control-label", for:"input02" %>
       <div class="controls"><%= f.text_field :surname, id:"input02" %></div><br/>
       
-      <%= f.label :birthday, class:"control-label", for:"input03" %>
+      <%= f.label :"Дата рождения", class:"control-label", for:"input03" %>
       <div class="controls"><%= f.date_field :birthday, id:"input03" %></div><br/>
 
       <%= f.label :"Роль", class:"control-label", for:"input04" %>
