@@ -25,17 +25,21 @@
                 </div>  
                 <div class="span2">
                     <div class="btn-group pull-right">
-                        <% if can? :read, post %>
+                        <% if can? :manage, @post %>
                             <%= link_to 'Редактировать', edit_post_path(post), class:"btn" %>
                         <% end %>
-                        <%= link_to 'Удалить', post_path(post),
-                        method: :delete, data: { confirm: 'Вы уверины?'}, class:"btn"%>
+                        <% if can? :manage, @post %>
+                            <%= link_to 'Удалить', post_path(post),
+                            method: :delete, data: { confirm: 'Вы уверины?'}, class:"btn"%>
+                        <% end %>
                     </div>   
                 </div>
             </div>
             <div class="row">
                 <div class="well" style="word-wrap: break-word;">
-                    <%= post.text %>
+                    <%= post.text %></br></br>
+                    <p class="text-success">
+                        Автор:<em> <%= post.user.name%> <%= post.user.surname %></em></p>
                 </div>
                 <hr/>
             </div>  

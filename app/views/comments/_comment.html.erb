@@ -4,11 +4,14 @@
 	<div class="span5" style="word-wrap: break-word;"><p><small><%= comment.body%></small></p></div>
 	<div class="span1 offset5">
 		<p>
-			<% if user_signed_in? %>
-		  		<%= link_to 'Удалить', [comment.post, comment],
-		        					    method: :delete,
-		               					data: { confirm: 'Are you sure?' } %>
+			<% if user_signed_in?%>
+				         					
 		    <% end %>
+		    <% if can? :manage, comment%>
+			  		<%= link_to 'Удалить', [comment.post, comment],
+			        					    method: :delete,
+			               					data: { confirm: 'Are you sure?' } %>
+			    <% end %>  
 		</p>
 	</div>
 </div>

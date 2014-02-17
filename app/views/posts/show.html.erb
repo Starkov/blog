@@ -8,10 +8,12 @@
 		</div> 
 	</div>
 </div>	
-<div class="row">	
-	<div class="span2 offset2 ">
-		<%= link_to 'Редактировать', edit_post_path(@post), class:"btn btn-danger"%>
-	</div>	
+<div class="row">
+	<% if can? :manage, @post %>	
+		<div class="span2 offset2 ">
+			<%= link_to 'Редактировать', edit_post_path(@post), class:"btn btn-danger"%>
+		</div>	
+	<% end %>
 </div>
 
 <div class="row">
