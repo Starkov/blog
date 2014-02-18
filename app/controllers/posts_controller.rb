@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   def belong_to_user
     if user_signed_in?
       @posts = Post.where(:user_id=> current_user.id)
-      @posts = @posts.paginate(:page => params[:page], :per_page => 3)
+      @posts = @posts.accessible_by(current_ability).paginate(:page => params[:page], :per_page => 3)
     end
   end
 	def show
