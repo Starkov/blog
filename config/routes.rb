@@ -20,10 +20,15 @@ Blog::Application.routes.draw do
   root to: "posts#index" 
  
   resources :posts do
-      resources :comments
+    resources :comments
+    collection do
+      get :belong_to_user
+    end
   end
   
   get 'users', to: "posts#index"
+
+  # get 'user_posts', to: "posts#user" 
    
    #  GET    "posts(.:format)" => "posts#index"
  

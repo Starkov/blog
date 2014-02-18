@@ -9,6 +9,12 @@ class PostsController < ApplicationController
 	def index
  		@posts = Post.paginate(:page => params[:page], :per_page => 3)
 	end
+  def belong_to_user
+    if user_signed_in?
+      @posts = Post.where(:user_id=> current_user.id)
+      @posts = @posts.paginate(:page => params[:page], :per_page => 3)
+    end
+  end
 	def show
 		  @post = Post.find(params[:id])
 	end

@@ -12,13 +12,19 @@
             <div class="navbar-inner">
                 <%= link_to 'electronics DIY', root_path, class:"brand" %>
                 <ul class="nav">
-                  <li class="divider-vertical"> <%= link_to 'Добавить пост', new_post_path()%></li>
-                </ul> 
+                  <% if user_signed_in? %>
+                    <li><p class="navbar-text">
+                      Здравствуйте, <em><%= current_user.name %> <%= current_user.surname %></em></p>
+                    </li>
+                  <% end %>
+                </ul>
+
                 <ul class="nav pull-right"> 
+                  <li class="divider-vertical"> <%= link_to 'Добавить пост', new_post_path()%></li>
+                    
                     <% if user_signed_in? %>
-                        <li><p class="navbar-text">
-                            Здравствуйте, <em><%= current_user.name %> <%= current_user.surname %></em></p>
-                        </li>
+                        <li class="divider-vertical"> <%= link_to 'Мои посты', belong_to_user_posts_path,
+                        method: :get%></li>
                         <li class="divider-vertical">
                             <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %></li> 
                         <li class="divider-vertical">
@@ -27,6 +33,7 @@
                             <li class="divider-vertical"><%= link_to 'Войти', new_user_session_path %></li>
                             <li class="divider-vertical"><%= link_to 'Зарегистрироваться', new_user_registration_path %></li>
                     <% end %> 
+
                 </ul>
             </div>
         </div>
